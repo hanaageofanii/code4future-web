@@ -43,7 +43,7 @@ export default function Nav() {
       ?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Mencegah body di-scroll saat menu HP terbuka
+  // Mencegah scroll di background saat menu HP terbuka
   useEffect(() => {
     if (mobOpen) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "unset";
@@ -161,48 +161,48 @@ export default function Nav() {
           position: "fixed",
           inset: 0,
           background: T.bg,
-          zIndex: 998,
+          zIndex: 1000, // <-- Diubah jadi 1000 agar menutupi navbar dan bisa diklik
           display: "flex",
           flexDirection: "column",
-          padding: "24px 6vw 40px",
-          transition:
-            "transform 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease",
-          transform: mobOpen ? "translateY(0)" : "translateY(-20px)",
+          padding: "20px 6vw 40px",
+          transition: "transform 0.4s ease, opacity 0.3s ease",
+          transform: mobOpen ? "translateY(0)" : "translateY(-10px)",
           opacity: mobOpen ? 1 : 0,
           pointerEvents: mobOpen ? "auto" : "none",
         }}>
-        {/* Tombol Close Custom */}
+        {/* Tombol Close yang lama */}
         <div
-          style={{ display: "flex", justifyContent: "flex-end", height: 40 }}>
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            height: 40,
+            alignItems: "center",
+          }}>
           <button
             onClick={() => setMobOpen(false)}
             style={{
               background: "none",
               border: "none",
-              fontSize: 11,
-              fontWeight: 700,
-              letterSpacing: ".1em",
-              color: T.dark,
+              fontSize: 26,
               cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              gap: 8,
-              fontFamily: "'Poppins', sans-serif",
+              color: T.mid,
+              padding: 4,
             }}>
-            CLOSE &#x2715;
+            &#x2715;
           </button>
         </div>
 
-        {/* List Menu */}
+        {/* List Menu kembali ke Poppins */}
         <div
           style={{
             flex: 1,
             display: "flex",
             flexDirection: "column",
+            alignItems: "center",
             justifyContent: "center",
-            gap: 20,
+            gap: 28,
           }}>
-          {NAV.map((l, i) => (
+          {NAV.map((l) => (
             <a
               key={l}
               href={`#${l.toLowerCase()}`}
@@ -211,56 +211,33 @@ export default function Nav() {
                 go(l);
               }}
               style={{
-                display: "flex",
-                alignItems: "flex-start",
-                gap: 16,
-                textDecoration: "none",
+                fontSize: 24,
+                fontWeight: 700,
+                fontFamily: "'Poppins', sans-serif",
                 color: active === l ? T.blue : T.dark,
-                // Animasi bergelombang per item menu
-                transform: mobOpen ? "translateY(0)" : "translateY(24px)",
-                opacity: mobOpen ? 1 : 0,
-                transition: `all 0.5s cubic-bezier(0.16,1,0.3,1) ${i * 0.05 + 0.1}s`,
+                textDecoration: "none",
+                transition: "color 0.2s",
               }}>
-              <span
-                className="mono"
-                style={{
-                  fontSize: 12,
-                  marginTop: 12,
-                  color: active === l ? T.blue : T.muted,
-                }}>
-                0{i + 1}
-              </span>
-              <span
-                style={{
-                  fontFamily: "'Instrument Serif', serif",
-                  fontSize: "clamp(46px, 12vw, 64px)",
-                  lineHeight: 1,
-                  fontWeight: 400,
-                  fontStyle: active === l ? "italic" : "normal",
-                }}>
-                {l}
-              </span>
+              {l}
             </a>
           ))}
         </div>
 
-        {/* Mobile Footer Area */}
+        {/* Kontak Mini di Bawah */}
         <div
           style={{
             borderTop: `1px solid ${T.line}`,
             paddingTop: 24,
             display: "flex",
             flexDirection: "column",
+            alignItems: "center",
             gap: 8,
-            opacity: mobOpen ? 1 : 0,
-            transition: "opacity 0.6s ease 0.4s",
           }}>
-          <span className="mono">Ready to build?</span>
           <a
             href="https://wa.me/62895332358853"
             style={{
-              fontSize: 15,
-              fontWeight: 500,
+              fontSize: 14,
+              fontWeight: 600,
               color: T.dark,
               textDecoration: "none",
             }}>
@@ -268,13 +245,8 @@ export default function Nav() {
           </a>
           <a
             href="mailto:hello@code4future.id"
-            style={{
-              fontSize: 15,
-              fontWeight: 500,
-              color: T.dark,
-              textDecoration: "none",
-            }}>
-            hello@code4future.id
+            style={{ fontSize: 13, color: T.muted, textDecoration: "none" }}>
+            code4futuree@gmail.com
           </a>
         </div>
       </div>
