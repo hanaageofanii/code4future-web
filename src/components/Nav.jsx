@@ -122,7 +122,7 @@ export default function Nav() {
               Get in Touch
             </a>
             <a
-              href="https://wa.me/6289332358853"
+              href="https://wa.me/62895332358853"
               target="_blank"
               rel="noopener noreferrer"
               className="bp"
@@ -257,7 +257,7 @@ export default function Nav() {
           }}>
           <span className="mono">Ready to build?</span>
           <a
-            href="https://wa.me/6289332358853"
+            href="https://wa.me/62895332358853"
             style={{
               fontSize: 15,
               fontWeight: 500,
