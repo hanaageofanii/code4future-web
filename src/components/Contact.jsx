@@ -40,8 +40,8 @@ export default function Contact() {
               <div
                 style={{ display: "flex", flexDirection: "column", gap: 20 }}>
                 {[
-                  ["Email", "hello@code4future.id"],
-                  ["WhatsApp", "+62 851 8321 9010"],
+                  ["Email", "code4futuree@gmail.com"],
+                  ["WhatsApp", " +62 8953 3235 8853"],
                   ["Based in", "Indonesia"],
                   ["Available", "Mon – Fri, 9am – 6pm WIB"],
                 ].map(([k, v]) => (

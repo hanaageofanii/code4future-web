@@ -46,7 +46,22 @@ export default function Work() {
         <div className="g2">
           {WORKS.map((w, i) => (
             <Fade key={w.title} delay={i * 0.07}>
-              <div className="wcard" style={{ height: "100%" }}>
+              <a
+                href={w.link ? w.link : undefined}
+                target={w.link ? "_blank" : undefined}
+                rel={w.link ? "noopener noreferrer" : undefined}
+                className="wcard"
+                style={{
+                  height: "100%",
+                  textDecoration: "none",
+                  display: "flex",
+                  flexDirection: "column",
+                  cursor: w.link ? "pointer" : "default",
+                }}
+                onClick={(e) => {
+                  if (!w.link) e.preventDefault();
+                }}>
+                {/* ── BAGIAN THUMBNAIL GAMBAR ── */}
                 <div
                   style={{
                     height: 220,
@@ -55,83 +70,121 @@ export default function Work() {
                     alignItems: "center",
                     justifyContent: "center",
                     flexShrink: 0,
+                    position: "relative",
+                    overflow: "hidden",
                   }}>
-                  <div
-                    style={{
-                      width: "60%",
-                      background: T.white,
-                      borderRadius: 8,
-                      padding: 16,
-                      boxShadow: "0 4px 20px rgba(0,0,0,.07)",
-                    }}>
-                    <div style={{ display: "flex", gap: 4, marginBottom: 10 }}>
-                      {["#FF6B6B", "#FFD93D", "#6BCB77"].map((c) => (
-                        <div
-                          key={c}
-                          style={{
-                            width: 6,
-                            height: 6,
-                            borderRadius: "50%",
-                            background: c,
-                          }}
-                        />
-                      ))}
-                    </div>
-                    <div
+                  {/* Logika Pintar: Kalau ada gambar, tampilkan gambarnya. Kalau kosong, tampilkan miniatur browser */}
+                  {w.img ?
+                    <img
+                      src={w.img}
+                      alt={w.title}
                       style={{
-                        height: 5,
-                        background: T.faint,
-                        borderRadius: 3,
-                        width: "78%",
-                        marginBottom: 5,
+                        width: "85%", // Berikan jarak napas
+                        height: "85%", // Berikan jarak napas
+                        objectFit: "contain", // Memastikan seluruh desain thumbnail terlihat, tidak terpotong
+                        borderRadius: "16px", // Sudut yang lebih lembut
+                        boxShadow: "0 10px 25px rgba(0,0,0,0.05)", // Bayangan konsisten untuk semua
                       }}
                     />
-                    <div
+                  : <div
                       style={{
-                        height: 4,
-                        background: T.faint,
-                        borderRadius: 3,
-                        width: "55%",
-                        marginBottom: 14,
-                      }}
-                    />
-                    <div
-                      style={{
-                        display: "grid",
-                        gridTemplateColumns: "1fr 1fr",
-                        gap: 6,
+                        width: "60%",
+                        background: T.white,
+                        borderRadius: 8,
+                        padding: 16,
+                        boxShadow: "0 4px 20px rgba(0,0,0,.07)",
+                        zIndex: 1,
                       }}>
                       <div
+                        style={{ display: "flex", gap: 4, marginBottom: 10 }}>
+                        {["#FF6B6B", "#FFD93D", "#6BCB77"].map((c) => (
+                          <div
+                            key={c}
+                            style={{
+                              width: 6,
+                              height: 6,
+                              borderRadius: "50%",
+                              background: c,
+                            }}
+                          />
+                        ))}
+                      </div>
+                      <div
                         style={{
-                          height: 40,
-                          background: w.color,
-                          borderRadius: 5,
-                          opacity: 0.7,
+                          height: 5,
+                          background: T.faint,
+                          borderRadius: 3,
+                          width: "78%",
+                          marginBottom: 5,
                         }}
                       />
                       <div
                         style={{
-                          height: 40,
-                          background: w.color,
-                          borderRadius: 5,
-                          opacity: 0.4,
+                          height: 4,
+                          background: T.faint,
+                          borderRadius: 3,
+                          width: "55%",
+                          marginBottom: 14,
                         }}
                       />
+                      <div
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: "1fr 1fr",
+                          gap: 6,
+                        }}>
+                        <div
+                          style={{
+                            height: 40,
+                            background: w.color,
+                            borderRadius: 5,
+                            opacity: 0.7,
+                          }}
+                        />
+                        <div
+                          style={{
+                            height: 40,
+                            background: w.color,
+                            borderRadius: 5,
+                            opacity: 0.4,
+                          }}
+                        />
+                      </div>
                     </div>
-                  </div>
+                  }
                 </div>
+                {/* ── BAGIAN TEKS BAWAH ── */}
                 <div
                   style={{
                     padding: "18px 22px 22px",
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "flex-start",
+                    flex: 1,
                   }}>
                   <div>
                     <span
                       className="mono"
-                      style={{ marginBottom: 6, display: "block" }}>
+                      style={{
+                        marginBottom: 6,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 8,
+                      }}>
                       {w.tag}
+                      {w.isPrivate && (
+                        <span
+                          style={{
+                            background: "#FEE2E2",
+                            color: "#EF4444",
+                            padding: "2px 6px",
+                            borderRadius: 4,
+                            fontSize: 8,
+                            fontWeight: 700,
+                          }}>
+                          🔒 INTERNAL
+                        </span>
+                      )}
                     </span>
                     <div
                       style={{
@@ -145,7 +198,7 @@ export default function Work() {
                   </div>
                   <span className="mono">{w.year}</span>
                 </div>
-              </div>
+              </a>
             </Fade>
           ))}
         </div>

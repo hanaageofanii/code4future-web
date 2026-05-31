@@ -63,30 +63,42 @@ export const STEPS = [
   },
 ];
 
+const CARD_BG = "#F7F6F3";
+
 export const WORKS = [
   {
-    title: "Men's Skincare Store",
-    tag: "E-Commerce",
-    year: "2024",
-    color: "#EEF4FF",
-  },
-  {
-    title: "IT Is Fun",
-    tag: "Company Profile",
-    year: "2024",
-    color: "#F0FDF4",
-  },
-  {
-    title: "Arie Baja Construction",
-    tag: "Company Profile",
-    year: "2024",
-    color: "#FFF7ED",
-  },
-  {
-    title: "Nusantara Restaurant",
+    title: "Dezan Group Property",
     tag: "Landing Page",
     year: "2025",
-    color: "#F5F3FF",
+    color: CARD_BG,
+    link: "https://dezangroup.web.id/",
+    img: "/images/dezan.png",
+  },
+  {
+    title: "Pomodoro To-Do",
+    tag: "Landing Page",
+    year: "2025",
+    color: CARD_BG,
+    link: "https://pomodoro-todo.my.id/",
+    img: "/images/pomodoro.png",
+  },
+  {
+    title: "Portal Absen Karyawan",
+    tag: "Web App",
+    year: "2025",
+    color: CARD_BG,
+    link: "",
+    isPrivate: true,
+    img: "/images/absen.png",
+  },
+  {
+    title: "Automotive Point of Sales",
+    tag: "POS System",
+    year: "2026",
+    color: CARD_BG,
+    link: "",
+    isPrivate: true,
+    img: "/images/pos-bengkel.png",
   },
 ];
 
