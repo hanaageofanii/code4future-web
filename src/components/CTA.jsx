@@ -76,7 +76,7 @@ export default function CTA() {
               flexWrap: "wrap",
             }}>
             <a
-              href="https://wa.me/6285183219010"
+              href="https://wa.me/62895332358853"
               target="_blank"
               rel="noopener noreferrer"
               className="bp"

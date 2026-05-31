@@ -132,7 +132,7 @@ export default function Pricing() {
                   ))}
                 </ul>
                 <a
-                  href="https://wa.me/6285183219010"
+                  href="https://wa.me/62895332358853"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={p.featured ? "bp" : "bo"}

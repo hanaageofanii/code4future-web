@@ -45,7 +45,7 @@ export default function Footer() {
               {[
                 ["IG", "#"],
                 ["LI", "#"],
-                ["WA", "https://wa.me/6285183219010"],
+                ["WA", "https://wa.me/62895332358853"],
               ].map(([label, href]) => (
                 <a
                   key={label}
