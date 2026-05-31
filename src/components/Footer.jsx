@@ -134,7 +134,7 @@ export default function Footer() {
             gap: 12,
           }}>
           <span className="mono" style={{ color: "rgba(255,255,255,.2)" }}>
-            &#169; 2025 code4future. All rights reserved.
+            &#169; 2026 code4future. All rights reserved.
           </span>
           <span className="mono" style={{ color: "rgba(255,255,255,.2)" }}>
             Based in Indonesia &mdash; Working worldwide
