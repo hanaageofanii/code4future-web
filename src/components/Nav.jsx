@@ -241,7 +241,7 @@ export default function Nav() {
               color: T.dark,
               textDecoration: "none",
             }}>
-            +62 851 8321 9010
+            +62 8953 3235 8853
           </a>
           <a
             href="mailto:hello@code4future.id"
