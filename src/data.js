@@ -67,29 +67,29 @@ const CARD_BG = "#F7F6F3";
 
 export const WORKS = [
   {
-    title: "Dezan Group Property",
+    title: "",
     tag: "Landing Page",
     year: "2025",
     color: CARD_BG,
-    link: "https://dezangroup.web.id/",
-    img: "/images/dezan.png",
+    link: "",
+    img: "/images/dn.png",
   },
   {
-    title: "Pomodoro To-Do",
+    title: "",
     tag: "Landing Page",
     year: "2025",
     color: CARD_BG,
-    link: "https://pomodoro-todo.my.id/",
-    img: "/images/pomodoro.png",
+    link: "",
+    img: "/images/p.png",
   },
   {
-    title: "Portal Absen Karyawan",
+    title: "",
     tag: "Web App",
     year: "2025",
     color: CARD_BG,
     link: "",
     isPrivate: true,
-    img: "/images/absen.png",
+    img: "/images/n.png",
   },
   {
     title: "Automotive Point of Sales",
